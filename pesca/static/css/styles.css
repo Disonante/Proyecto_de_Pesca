@@ -13,3 +13,8 @@
 .velocidad-granate {
     color: maroon;
 }
+
+body {
+    width:90%;
+    margin:90%;
+}
