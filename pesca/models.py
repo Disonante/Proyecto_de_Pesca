@@ -1,10 +1,7 @@
 from django.db import models
 
 class RegistroPesca(models.Model):
-<<<<<<< HEAD
-    #fecha_jornada =  models.TextField(max_length=50, verbose_name="Día de pesca")
-=======
->>>>>>> e4622efc28a26aed0391c0db3ce1f5a4bdd34f5b
+
     altura_ola = models.FloatField(verbose_name="Altura de la ola (en metros)")
     direccion_ola = models.CharField(max_length=50, verbose_name="Dirección de la ola (cardinal)")
     periodo_ola = models.IntegerField(verbose_name="Periodo de la ola (en segundos)")
