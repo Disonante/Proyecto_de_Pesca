@@ -1,0 +1,59 @@
+{% extends 'pesca/base.html' %}
+
+{% block content %}
+<h1>Jornadas de Pesca</h1>
+<button><a href="{% url 'agregar_registro' %}">Agregar una nueva jornada</a></button>
+
+<table>
+    <tr>
+        <th>Fecha</th>
+        <th>Ubicación</th>
+        <th>Altura de Ola</th>
+        <th>Dirección de Ola</th>
+        <th>Periodo de Ola</th>
+        <th>Dirección de Viento</th>
+        <th>Velocidad de Viento</th>
+        <th>Coef. de Marea</th>    
+        <th>Capturas</th>
+        <th>Acciones</th>
+    </tr>
+    {% for registro in registros %}
+    <tr>
+        
+        <th><b>{{ registro.creado_el }}</b></th>
+        <td> <b>{{ registro.situacion_geografica }}</b></td>
+        <td>{{ registro.altura_ola }}</td>
+        <td>{{ registro.direccion_ola }}</td>
+        <td>
+            <span
+                style="/* css-lint-disable */ color : {% if registro.periodo_ola <= 10 %}gray 
+                    {% elif registro.periodo_ola <= 12 %}lightblue 
+                    {% elif registro.periodo_ola <= 14 %}green
+                    {% elif registro.periodo_ola <= 16 %}red
+                    {% else %}maroon{% endif %};">           
+                         {{ registro.periodo_ola }} - sg
+            </span>
+        </td>
+        <td>{{ registro.direccion_viento}}</td>
+        <!-- Velocidad del Viento con Color -->
+        <td>
+            <span 
+                style="/* css-lint-disable */ color: {% if registro.velocidad_viento <= 10 %}grey
+                    {% elif registro.velocidad_viento <= 20 %}lightblue
+                    {% elif registro.velocidad_viento <= 30 %}green
+                    {% elif registro.velocidad_viento <= 40 %}red
+                    {% else %}maroon{% endif %};">
+                      {{ registro.velocidad_viento }} - km/h 
+            </span>
+        </td>
+       
+        <td>{{ registro.coeficiente_marea }}</td>
+        <td><b>{{ registro.capturas }}</b></td>
+        <td>
+           <button> <a href="{% url 'editar_registro' registro.id %}">Editar</a></button>
+           <button><a href="{% url 'eliminar_registro' registro.id %}">Eliminar</a></button> 
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
