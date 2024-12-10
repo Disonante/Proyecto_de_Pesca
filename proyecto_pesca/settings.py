@@ -16,11 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> e4622efc28a26aed0391c0db3ce1f5a4bdd34f5b
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -30,12 +25,9 @@ SECRET_KEY = 'django-insecure-8z^xmdvxg55_&a2c8aoy!5%of*p1$$%f9myro(@g2elq%pq%*n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-<<<<<<< HEAD
+
 ALLOWED_HOSTS = ['.onrender.com','127.0.0.1', 'localhost']
 
-=======
-ALLOWED_HOSTS = ['.onrender.com']
->>>>>>> e4622efc28a26aed0391c0db3ce1f5a4bdd34f5b
 
 
 # Application definition
